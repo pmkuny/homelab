@@ -1,0 +1,3 @@
+- Rebuild lab using NixOS
+  - Experimental configuration through Nix Flakes (in-progress)
+  - Configuration of nix-darwin for personal devices
