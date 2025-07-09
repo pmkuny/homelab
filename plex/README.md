@@ -3,8 +3,8 @@
 - Add new hard drive to storage DAS
 - Documentation Update (this doc)
 - Physical and Logical Diagrams
-- Switch all containers over to Traefik-managed services to avoid having to remember static port mappings
-	- Alternatively, port mapping list needs to be created and updated.
+- Switch all containers over to Traefik-managed services
+- Move away from Pangolin for pure Traefik
 
 # Docker and Containers
 
@@ -15,7 +15,6 @@
 - ftpd - SFTP Server for Phone/Laptop Transfer
 - Glue-Tun - Binds AirVPN interface to QBT
 - Grafana - Visualization Platform for Host and Container Metrics
-- Heimdall (Defunct) - Landing Page
 - LazyLibrarian - Ebook/Audiobook Control Client
 - Newt - Pangolin Suite - Runs as a proxy service
 - Node-Exporter - Exports Host Metrics
@@ -27,11 +26,8 @@
 - Prowlarr - Indexer Control Client
 - QBittorrent-Nox - QBT running as a web interface.
 - Radarr - Movie Control Client
-- Readarr (Defunct) - Ebook Control Client
 - SABNzbd - Usenet Download Client
 - Sonarr - TV Series Control Client
-- Syncthing (Defunct) - Synchronize files between host and clients
-- Tautulli (Defunct) - Stats for Plex Usage
 
 
 # File and Folder Structure 
