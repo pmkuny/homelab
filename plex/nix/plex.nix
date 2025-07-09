@@ -84,5 +84,123 @@
    ];
  };
 
+ virtualisation.oci-containers.containers.bazarr = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
 
+  virtualisation.oci-containers.containers.overseerr = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
+
+  virtualisation.oci-containers.containers.prowlarr = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
+
+  virtualisation.oci-containers.containers.sabnzbd = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
+
+  virtualisation.oci-containers.containers.qbittorrent = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
+
+  virtualisation.oci-containers.containers.gluetun = {
+   image = "lscr.io/linuxserver/radarr@sha256:69093d6c8974c8ad94c97ea52c78ce14a782fbbe0d7dba0538a2d0ef86c97d0a";
+   autoStart = true;
+   autoRemoveOnStop = false;
+   extraOptions = [
+    "--restart=unless-stopped"
+   ];
+   environment = {
+     UMASK = "002";
+     PUID = "1004";
+     PGID = "1001";
+     TZ = "Americas/Chicago";
+   };
+   volumes = [
+    "/srv/plex/config:/config"
+    "/mnt/media/plex:/data/media"
+    "/tmp/PlexRamScratch:/transcode"
+   ];
+ };
 }
