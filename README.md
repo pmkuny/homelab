@@ -16,7 +16,7 @@ I put several goals in place when rebuilding this lab from the ground-up, includ
 - Automated personal configurations (Nix, Ansible, Chezmoi)
 - Documentation of Effort (this document)
 
-From there, needs drove the rest. I started out initially with my Plex Server, which was the foundation of this effort, and slowly expanded the stack, services, and hardware involved.
+From there, needs drove the rest. I started out initially with my Plex Server, which was the foundation of this effort, and slowly expanded the stack, services, and hardware involved. (TODO, next up is K8s hardware)
 
 ## Components
 
