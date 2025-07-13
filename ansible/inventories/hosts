@@ -1,0 +1,5 @@
+#homelab:
+  #children:
+    #plex:
+    #k_control:
+    #k_worker:   
