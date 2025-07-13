@@ -16,9 +16,18 @@
     "--hostname=ansible-dev-container"
   ],
   "updateRemoteUserUID": true,
+  "forwardPorts": [],
   "customizations": {
     "vscode": {
-      "extensions": ["redhat.ansible","redhat.vscode-redhat-account"]
+      "extensions": ["redhat.ansible","redhat.vscode-redhat-account"],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash"
+          }
+        }
+      }
     }
   }
 }

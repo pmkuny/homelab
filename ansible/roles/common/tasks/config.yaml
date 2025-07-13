@@ -1,0 +1,10 @@
+---
+- name: Ensure SSHD enabeld
+  ansible.builtin.systemd_service:
+    name: sshd
+    state: started
+    enabled: true
+
+- name: Propogate Ansible SSH Key
+  ansible.posix.authorized_key:
+    
