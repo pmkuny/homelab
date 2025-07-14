@@ -1,1 +1,11 @@
-ansible/collections/*
+# Ansible 
+ansible/.ansible/
+ansible/collections/
+.ansible/
+
+# Virtual Environments
+venv/
+.venv/
+
+# Local Settings
+.vscode/

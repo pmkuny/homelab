@@ -1,5 +1,9 @@
-#homelab:
-  #children:
-    #plex:
-    #k_control:
-    #k_worker:   
+plex:
+  hosts:
+    ubuntu.orb.local
+#k_control:
+#k_worker:
+
+homelab:
+  children:
+    plex

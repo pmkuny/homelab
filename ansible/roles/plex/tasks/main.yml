@@ -1,0 +1,3 @@
+---
+# tasks file for plex
+- include_tasks: docker.yaml

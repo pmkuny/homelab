@@ -3,3 +3,9 @@
   ansible.builtin.package:
     name: docker
     state: present
+
+- name: Ensure Docker is Started and Enabled
+  ansible.builtin.systemd_service:
+    name: docker
+    state: started
+    enabled: true

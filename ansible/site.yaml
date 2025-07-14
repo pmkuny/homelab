@@ -1,0 +1,6 @@
+---
+- name: Site
+  hosts: homelab
+  roles:
+    - common
+    - plex

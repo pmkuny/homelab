@@ -5,6 +5,16 @@
     state: started
     enabled: true
 
+- name: User present
+  ansible.builtin.user:
+    name: patch
+    groups: wheel,docker
+    append: true
+
+
 - name: Propogate Ansible SSH Key
   ansible.posix.authorized_key:
-    
+    user: "{{ ansible_user }}"
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    state: present
+    manage_dir: true
