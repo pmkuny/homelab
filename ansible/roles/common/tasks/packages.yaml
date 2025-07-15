@@ -1,6 +1,6 @@
 ---
 - name: Install essential packages
-  ansible.builtin.packages:
+  ansible.builtin.package:
     name:
       - vim
       - git

@@ -8,13 +8,12 @@
 - name: User present
   ansible.builtin.user:
     name: patch
-    groups: wheel,docker
     append: true
 
 
 - name: Propogate Ansible SSH Key
   ansible.posix.authorized_key:
-    user: "{{ ansible_user }}"
-    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    user: patch
+    key: "{{ lookup('url', 'https://github.com/pmkuny.keys') }}"
     state: present
     manage_dir: true

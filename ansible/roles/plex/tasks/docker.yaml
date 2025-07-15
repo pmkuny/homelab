@@ -9,3 +9,8 @@
     name: docker
     state: started
     enabled: true
+  
+- name: Make sure patch is part of Docker group
+  ansible.builtin.user:
+    name: patch
+    groups: docker
