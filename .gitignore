@@ -9,3 +9,8 @@ venv/
 
 # Local Settings
 .vscode/
+
+# Python
+.pyc
+
+.gitignore
