@@ -5,5 +5,7 @@
 - Pin container image versions
 - Network Segmentation 
 - Traefik setup
-- Cloudflare ZT Tunnel
 - Authelia
+
+- Ansible Automation
+- FluxCD for K8s setup

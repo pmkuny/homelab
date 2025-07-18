@@ -24,6 +24,8 @@ I put several goals in place for rebuilding this lab from the ground-up, includi
 	- [Beelink EQi12](https://www.amazon.com/dp/B0B9JRT7Q9) 
 		- Upgraded with a Samsung 990 Pro 1TB for incomplete downloads
 - Kubernetes Cluster (TODO)
-	- 3x Beelink EQi12s
-	- 1 control node, 2 worker nodes.
+	- Control Plane
+		- 3x Beelink Mini S12 Pro
+	- Worker Plane 
+		- 3x (TODO)
 
