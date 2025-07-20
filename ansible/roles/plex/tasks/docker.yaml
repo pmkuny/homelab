@@ -9,8 +9,15 @@
     name: docker
     state: started
     enabled: true
-  
+
+- name: Create Media Group
+
 - name: Make sure patch is part of Docker group
   ansible.builtin.user:
     name: patch
     groups: docker
+
+- name: Build /srv directory for containers
+  ansible.builtin.file:
+    path: /srv
+    state: directory

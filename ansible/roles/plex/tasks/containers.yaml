@@ -1,0 +1,8 @@
+---
+- name:  Bazarr Container
+  community.docker.docker_container:
+    name: bazarr
+    image: {{ plex_images.bazarr }}
+
+    # Port Handling through Traefik?
+

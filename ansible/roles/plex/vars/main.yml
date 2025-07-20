@@ -1,3 +1,39 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # vars file for plex
+
+plex_images:
+  bazarr: "linuxserver/bazarr@sha256:a104539bed02668db9726e231f276054ee759248f8a2c637457232830619b57b"
+  calibre: "linuxserver/calibre@sha256:ea59a40f5a068b5944da32c2b0ced168ededd8b0f5cc333c576dab69dc45c737"
+  cadvisor: "gcr.io/cadvisor@sha256:505e2c61e74e5d5eae522d01e2e971e91b793bc405270315a64da806ba033640"
+  gluetun: "qmcgaw/gluetun"
+  grafana: "grafana/grafana:latest"
+  lazylibrarian: "linuxserver/lazylibrarian@sha256:13b52ea2ecba81218347bee1e67c687537a5c82648702c6229385a0b8147d032"
+  overseerr: "linuxserver/overseerr@sha256:4fe319b70f902fbbef6fae603d6c9cf97d96905f7e0c6bdaaf8fe990328b261c"
+  pangolin: "fosrl/pangolin@sha256:05c1fb5caffb6468da00754126461828851c90871fc3a79686b7f1cb2a24d7f4"
+  pihole: "pihole/pihole@sha256:f84c1654bfbafc44e2ac8447a1fa2fb739eae66395b4c179d2c59cb93e1321f3"
+  plex: "linuxserver/plex@sha256:27303d7568496ba2faa1951d219940f00a1cd96c1d25ca204789d9fbd0153d3e"
+  prometheus: "prom/prometheus@sha256:f1090ead2951e86408272405b732e641896b4e1e2c41441494267aca8a7980d9"
+  prowlarr: "linuxserver/prowlarr@sha256:89eac63d2099477094df8c2329a6a750b8b5e382f8975dd18e7861678b55cca4"
+  qbt: "qbittorrentofficial/qbittorrent-nox@sha256:a561d192887101aaeb42617312bb2bb9f91050e77d4ed8d0bfee6c5bbabb1ddc"
+  sabnzbd: "linuxserver/sabnzbd@sha256:9db64e19571f1c71d709025a690ee1223f3f288c0c5a03928b74c837c8566489"
+  radarr: "linuxserver/radarr@sha256:9c49e9a84d3a40dd857797b740847e2b8763fcc7b65559bdd6fb9f0e275e3670"
+  sonarr: "linuxserver/sonarr@sha256:b0ac15772c04f329964ed79cb446ab23fd1ee28f33b58b10f0264feac17d33cd"
+
+plex_ports:
+  bazarr: 
+  calibre:
+  cadvisor:
+  gluetun: 
+  grafana: 
+  lazylibrarian: 
+  overseerr: 
+  pangolin: 
+  pihole: 
+  plex: 
+  prometheus: 
+  prowlarr: 
+  qbt: 
+  sabnzbd: 
+  radarr: 
+  sonarr:

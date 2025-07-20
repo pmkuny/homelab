@@ -3,3 +3,7 @@
 - name: Configure Docker
   ansible.builtin.include_tasks:
     file: docker.yaml
+
+- name: Configure all Service Containers
+  ansible.builtin.include_tasks:
+    file: containers.yaml
