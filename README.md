@@ -12,8 +12,8 @@ I put several goals in place for rebuilding this lab from the ground-up, includi
 - Full control of networking out to my home (edge) router.
 - Network Segmentation
 - Kubernetes Deployment
-- K8s Automation through Flux or Argo
-- Configuration Management through something like Nix or Ansible
+  - Flux, Argo, Pulumi as contenders for cluster management
+- Host Configuration Management through something like Nix or Ansible
 - Automated personal configurations (Nix, Ansible, Chezmoi)
 - Documentation of Effort (this document)
 
