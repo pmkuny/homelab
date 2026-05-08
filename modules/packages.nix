@@ -3,6 +3,9 @@
 {
   home.packages = [
     pkgs.starship
+    pkgs.clang-tools
+    pkgs.scons
+    pkgs.git-lfs
     pkgs.gemini-cli
     pkgs.ollama
     pkgs.wireguard-tools
