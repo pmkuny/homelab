@@ -3,6 +3,7 @@
 {
   home.packages = [
     pkgs.starship
+    pkgs.rustup
     pkgs.clang-tools
     pkgs.scons
     pkgs.git-lfs
