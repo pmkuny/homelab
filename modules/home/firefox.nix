@@ -2,8 +2,6 @@
 
 {
   programs.firefox = {
-    # Use Platform-Specific defualt paths
-    configPath = if pkgs.stdenv.isDarwin then "Library/Application Support/Firefox" else ".mozilla/firefox";
     enable = true;
     policies = {
         DisableTelemetry = true;
