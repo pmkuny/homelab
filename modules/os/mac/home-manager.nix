@@ -19,6 +19,9 @@
         username = username;
         homeDirectory = "/Users/${username}";
         stateVersion = "25.11";
+        sessionPath = [
+        "$HOME/.cargo/bin"
+        ];
       };
     };
   };
