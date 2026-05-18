@@ -22,6 +22,7 @@ in
       font-size = 16;
       cursor-style = "block";
       keybind = "global:cmd+;=toggle_quick_terminal";
+      term = "xterm-256color";
     };
   };
 }
