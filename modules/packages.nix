@@ -19,7 +19,6 @@
     pkgs.sops
   ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
     pkgs.google-chrome
-    pkgs.vscode
     pkgs.vlc
     pkgs.discord
     pkgs.element-desktop

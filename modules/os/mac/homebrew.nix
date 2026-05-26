@@ -31,7 +31,6 @@
       "stremio"
       "tailscale-app"
       "tidal"
-      "visual-studio-code"
       "vlc"
     ];
 
