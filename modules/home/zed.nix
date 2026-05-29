@@ -3,7 +3,9 @@
 {
   programs.zed-editor = {
       enable = true;
+      mutableUserSettings = true;
       userSettings = {
+        disable_ai = true;
         buffer_font_size = 16;
         buffer_font_family = "JetBrains Nerd Font Mono";
         base_keymap = "VSCode";
