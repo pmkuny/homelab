@@ -5,6 +5,8 @@
     casks = [
       "alt-tab"
       "anaconda"
+      "antigravity"
+      "antigravity-cli"
       "discord"
       "element"
       "eqmac"
@@ -13,9 +15,6 @@
       "google-chrome"
       "ghostty"
       "jordanbaird-ice"
-#      "kiro"
-#      "kiro-cli"
-#      "linearmouse"
       "macmediakeyforwarder"
       "microsoft-auto-update"
       "microsoft-teams"
