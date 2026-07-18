@@ -13,11 +13,11 @@
     };
   };
 
-  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, ... }:
   let
     systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
     forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
-    
+
     local = if builtins.pathExists ./local.nix then (import ./local.nix inputs) else { };
   in
   {
@@ -26,14 +26,14 @@
     darwinConfigurations = {
       "mbp" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        modules = [ 
+        modules = [
           ./modules/os/mac/default.nix
           ./hosts/mbp/default.nix
         ];
-        specialArgs = { 
-          inherit inputs; 
-          hostname = "mbp"; 
-          username = "patch"; 
+        specialArgs = {
+          inherit inputs;
+          hostname = "mbp";
+          username = "patch";
           userHomeConfig = ./modules/home/patch;
         };
       };
@@ -44,21 +44,31 @@
           ./modules/os/mac/default.nix
           ./hosts/macmini/default.nix
         ];
-        specialArgs = { 
-          inherit inputs; 
-          hostname = "macmini"; 
-          username = "patch"; 
+        specialArgs = {
+          inherit inputs;
+          hostname = "macmini";
+          username = "patch";
           userHomeConfig = ./modules/home/patch;
         };
       };
     } // (local.darwinConfigurations or { });
 
     nixosConfigurations = {
+      "dev" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./modules/os/linux/default.nix
+          ./hosts/dev/default.nix
+        ];
+        specialArgs = { inherit inputs; };
+      };
+
+    nixosConfigurations = {
       "tpx1" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ 
+        modules = [
           ./modules/os/linux/default.nix
-          ./hosts/tpx1/default.nix 
+          ./hosts/tpx1/default.nix
         ];
         specialArgs = { inherit inputs; };
       };
