@@ -4,6 +4,7 @@
   programs.zed-editor = {
       enable = true;
       mutableUserSettings = true;
+      extensions = ["zed-legacy-themes"];
       userSettings = {
         disable_ai = true;
         buffer_font_size = 16;
@@ -14,8 +15,8 @@
         ui_font_size = 16;
         theme = {
           mode = "system";
-          light = "One Light";
-          dark = "One Dark";
+          light = "Zed Legacy: Solarized Light";
+          dark = "Zed Legacy: Solarized Dark";
         };
       };
   };
