@@ -7,6 +7,10 @@
         hostname = "192.168.1.251";
         user = "root";
       };
+      dev = {
+        hostname = "192.168.1.252";
+        user = "patch";
+      };
     };
   };
 }

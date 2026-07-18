@@ -53,15 +53,6 @@
       };
     } // (local.darwinConfigurations or { });
 
-    nixosConfigurations = {
-      "dev" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./modules/os/linux/default.nix
-          ./hosts/dev/default.nix
-        ];
-        specialArgs = { inherit inputs; };
-      };
 
     nixosConfigurations = {
       "tpx1" = nixpkgs.lib.nixosSystem {
@@ -69,6 +60,15 @@
         modules = [
           ./modules/os/linux/default.nix
           ./hosts/tpx1/default.nix
+        ];
+        specialArgs = { inherit inputs; };
+      };
+
+      "dev" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./modules/os/linux/default.nix
+          ./hosts/dev/default.nix
         ];
         specialArgs = { inherit inputs; };
       };
