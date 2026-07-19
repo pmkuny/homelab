@@ -1,8 +1,11 @@
 { ... }: {
   homebrew = {
     enable = true;
+    taps = [
+      "siderolabs/tap"
+    ];
     brews = [
-      "siderolabs/tap/talosctl"
+      "talosctl"
       "kubectl"
     ];
     casks = [
@@ -11,6 +14,7 @@
       "antigravity"
       "antigravity-cli"
       "discord"
+      "docker"
       "element"
       "eqmac"
       "firefox"
