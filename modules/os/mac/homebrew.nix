@@ -1,7 +1,10 @@
 { ... }: {
   homebrew = {
     enable = true;
-    brews = [];
+    brews = [
+      "siderolabs/tap/talosctl"
+      "kubectl"
+    ];
     casks = [
       "alt-tab"
       "anaconda"
