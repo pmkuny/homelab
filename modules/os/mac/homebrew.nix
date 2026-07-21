@@ -3,10 +3,13 @@
     enable = true;
     taps = [
       "siderolabs/tap"
+      "fluxcd/tap"
     ];
     brews = [
-      "talosctl"
       "kubectl"
+      "siderolabs/tap/talosctl"
+      "fluxcd/tap/flux"
+      "yq"
     ];
     casks = [
       "alt-tab"
