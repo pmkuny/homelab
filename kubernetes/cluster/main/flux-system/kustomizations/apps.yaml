@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./kubernetes/clusters/main/apps
+  path: ./kubernetes/cluster/main/apps
   prune: true
   # Make sure the platform layer is up and running first
   dependsOn:

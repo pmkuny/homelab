@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./kubernetes/clusters/main/platform
+  path: ./kubernetes/cluster/main/platform
   prune: true
   # Depends on the underlying infrastrcture configuration (namespaces and other K8s primitives)
   dependsOn:
