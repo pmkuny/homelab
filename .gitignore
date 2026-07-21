@@ -1,5 +1,4 @@
 **/flake.diff
-local.nix
+**/local.nix
 result
 **qcow2**
-

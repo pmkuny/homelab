@@ -7,6 +7,7 @@
     ];
     brews = [
       "cilium-cli"
+      "helm"
       "kubectl"
       "siderolabs/tap/talosctl"
       "fluxcd/tap/flux"
