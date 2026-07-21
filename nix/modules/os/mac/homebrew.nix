@@ -6,6 +6,7 @@
       "fluxcd/tap"
     ];
     brews = [
+      "cilium-cli"
       "kubectl"
       "siderolabs/tap/talosctl"
       "fluxcd/tap/flux"
@@ -17,7 +18,7 @@
       "antigravity"
       "antigravity-cli"
       "discord"
-      "docker"
+      "docker-desktop"
       "element"
       "eqmac"
       "firefox"

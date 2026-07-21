@@ -55,6 +55,7 @@
         k = "kubectl";
         tf = "terraform";
         pl = "pulumi";
+        tc = "talosctl";
         };
     };
 }
