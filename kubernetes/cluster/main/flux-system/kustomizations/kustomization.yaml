@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - apps.yaml
-  - infra-metallb-controller
-  - infra-metallb-config
+  - infra-metallb-controller.yaml
+  - infra-metallb-config.yaml
   - infrastructure.yaml
   - platform.yaml
