@@ -17,8 +17,11 @@ spec:
         app: personal-site
         public: "true"
     spec:
+      imagePullSecrets:
+        - name: ghcr-token
       containers:
         - name: nginx
-          image: ghcr.io/<owner>/<repo>:latest
+          image: ghcr.io/pmkuny/about.kuny.me:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
