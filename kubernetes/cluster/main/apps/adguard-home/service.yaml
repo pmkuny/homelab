@@ -4,7 +4,7 @@ metadata:
   name: adguard-home-svc
   namespace: adguard-home
   labels:
-    lan_expose: true
+    lan_expose: "true"
     app: adguard-home
 spec:
   type: LoadBalancer

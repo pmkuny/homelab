@@ -4,3 +4,7 @@ resources:
   - gotk-components.yaml
   - gotk-sync.yaml
   - kustomizations/
+
+labels:
+  - pairs:
+      managed-by: flux

@@ -5,3 +5,7 @@ resources:
   - longhorn-system.yaml
   - metallb-system.yaml
   - external-secrets.yaml
+
+labels:
+  - pairs:
+      managed-by: flux

@@ -4,7 +4,7 @@ metadata:
   name: adguard-home
   namespace: adguard-home
   labels:
-    lan_expose: true
+    lan_expose: "true"
     app: adguard-home
 spec:
   selector:
@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        lan_expose: true
+        lan_expose: "true"
         app: adguard-home
     spec:
       volumes:

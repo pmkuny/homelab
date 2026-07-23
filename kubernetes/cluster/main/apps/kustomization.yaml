@@ -3,3 +3,7 @@ kind: Kustomization
 
 resources:
   - adguard-home/
+
+labels:
+  - pairs:
+      managed-by: flux

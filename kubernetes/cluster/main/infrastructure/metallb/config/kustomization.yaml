@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - app-addresspool.yaml
   - app-l2advertisement.yaml
+
+labels:
+  - pairs:
+      managed-by: flux

@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - helmrepository.yaml
   - helmrelease.yaml
+
+labels:
+  - pairs:
+      managed-by: flux

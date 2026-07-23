@@ -3,3 +3,7 @@ kind: Kustomization
 
 resources:
   - storage/longhorn/
+
+labels:
+  - pairs:
+      managed-by: flux
