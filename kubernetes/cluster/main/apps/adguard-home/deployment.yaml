@@ -26,15 +26,15 @@ spec:
           image: docker.io/adguard/adguardhome
           ports:
             - containerPort: 53
-              protocol: udp
+              protocol: UDP
             - containerPort: 53
-              protocol: tcp
+              protocol: TCP
             - containerPort: 80
-              protocol: tcp
+              protocol: TCP
             - containerPort: 443
-              protocol: tcp
+              protocol: TCP
             - containerPort: 853
-              protocol: tcp
+              protocol: TCP
           volumeMounts:
             - name: vol-appdata
               mountPath: /opt/adguardhome/conf

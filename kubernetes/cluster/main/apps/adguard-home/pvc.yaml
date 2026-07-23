@@ -6,6 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+    # longhorn-static is prebuilt by longhorn during install and is for stateful
   storageClassName: longhorn-static
   resources:
     requests:
