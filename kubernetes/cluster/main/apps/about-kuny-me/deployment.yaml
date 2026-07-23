@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: personal-site
-  namespace: personal-site
+  name: about-kuny-me
+  namespace: about-kuny-me
   labels:
     public: "true"
-    app: personal-site
+    app: about-kuny-me
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: personal-site
+      app: about-kuny-me
   template:
     metadata:
       labels:
-        app: personal-site
+        app: about-kuny-me
         public: "true"
     spec:
       imagePullSecrets:

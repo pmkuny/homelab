@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - adguard-home/
-  - personal-site/
+  - about-kuny-me/
 
 labels:
   - pairs:
