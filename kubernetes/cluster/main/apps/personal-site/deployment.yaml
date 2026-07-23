@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-site
+  namespace: personal-site
+  labels:
+    public: "true"
+    app: personal-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-site
+  template:
+    metadata:
+      labels:
+        app: personal-site
+        public: "true"
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/<owner>/<repo>:latest
+          ports:
+            - containerPort: 80
