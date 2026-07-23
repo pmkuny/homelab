@@ -3,13 +3,14 @@
 {
   programs.firefox = {
     enable = true;
+    package = null;
     policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
             Value = true;
-            Locked = true;
-            Cryptomining = true;
+            Locked = false;
+            Cryptomining = false;
             Fingerprinting = false;
         };
     };
@@ -22,8 +23,8 @@
         "browser.search.defaultenginename" = "DuckDuckGo";
         "browser.search.selectedEngine" = "DuckDuckGo";
         "privacy.donottrackheader.enabled" = true;
-        "dom.security.https_only_mode" = true;
-        "mousewheel.with_control.action" = 3; 
+        "dom.security.https_only_mode" = false;
+        "mousewheel.with_control.action" = 3;
         "mousewheel.with_cmd.action" = 3;
       };
     };

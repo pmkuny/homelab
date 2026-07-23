@@ -4,6 +4,10 @@
     ./git.nix
     ./zsh.nix
     ./ghostty.nix
+    ./firefox.nix
+    ./obsidian.nix
+    ./zed.nix
+    ./zsh.nix
     ./neovim.nix
     ./docker.nix
   ];
