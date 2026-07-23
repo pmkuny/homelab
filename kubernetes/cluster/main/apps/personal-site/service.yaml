@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: personal-site
-  namespace: personal-site
+  name: about-kuny-me
+  namespace: about-kuny-me
   labels:
     public: "true"
-    app: personal-site
+    app: about-kuny-me
 spec:
   selector:
-    app: personal-site
+    app: about-kuny-me
   ports:
     - port: 80
       targetPort: 80
