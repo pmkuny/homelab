@@ -8,6 +8,7 @@ metadata:
     app: adguard-home
 spec:
   type: LoadBalancer
+  externalTrafficPolicy: Local
   selector:
     app: adguard-home
   ports:
