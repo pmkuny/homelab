@@ -6,7 +6,7 @@ resources:
   - external-secrets.yaml
   - longhorn-system.yaml
   - metallb-system.yaml
-  - personal-site.yaml
+  - about-kuny-me.yaml
 
 labels:
   - pairs:
