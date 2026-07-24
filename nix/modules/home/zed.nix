@@ -17,6 +17,9 @@
           mode = "system";
           light = "Zed Legacy: Solarized Light";
           dark = "Zed Legacy: Solarized Dark";
+        vim = {
+                use_system_clipboard = "on_yank";
+              };
         };
       };
   };

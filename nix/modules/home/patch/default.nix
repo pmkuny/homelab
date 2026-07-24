@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 
 #let
@@ -49,6 +49,27 @@
             bindkey -e
             bindkey -v
             eval "$(starship init zsh)"
+            bindkey -M viins '^[' vi-cmd-mode
+
+            # Force Ctrl+[ to enter normal mode explicitly in all keymaps
+            bindkey -M viins '^[' vi-cmd-mode
+            bindkey -M visual '^[' vi-cmd-mode
+
+            # Ensure bracketed paste terminates gracefully without dropping characters
+            bindkey -M viins '^[[200~' bracketed-paste
+            bindkey -M vicmd '^[[200~' bracketed-paste
+
+            # Fix Starship redrawing from destroying the ZLE paste stack
+            function zle-keymap-select() {
+              if [[ $KEYMAP == vicmd ]]; then
+                # Keep standard mode tracking, but do not clear pending buffers
+                echo -ne "\e[2 q"
+              else
+                echo -ne "\e[5 q"
+              fi
+              zle reset-prompt
+            }
+            zle -N zle-keymap-select
         '';
 
         shellAliases = {
