@@ -15,14 +15,9 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
-      values:
-        extraVolumes:
-          - name: alloy-config
-            configMap:
-              name: alloy-cm
-              namespace: monitoring
-        extraVolumeMounts:
-          - name: alloy-config
-            mountPath: /etc/alloy/alloy.yaml
-            subPath: alloy.yaml
-            readOnly: true
+  values:
+    alloy:
+      configMap:
+        create: false
+        name: alloy-cm
+        key: alloy.yaml
