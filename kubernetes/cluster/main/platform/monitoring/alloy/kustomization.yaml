@@ -2,10 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - storage/longhorn/
-  - network/cloudflared/
-  - monitoring/grafana/
-  - monitoring/alloy/
+  - helmrepository.yaml
+  - helmrelease.yaml
 
 labels:
   - pairs:
