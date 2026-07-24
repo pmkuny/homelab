@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: longhorn
-  namespace: flux-system
+  namespace: longhorn-system
 spec:
   interval: 30m
 
@@ -15,7 +15,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: longhorn
-        namespace: flux-system
+        namespace: longhorn-system
 
   # Longhorn Chart Settings
   # Default Data Path being set because we are using Talos and I want to make sure we're not clobbering other immutable things
