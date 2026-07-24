@@ -2,12 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - about-kuny-me.yaml
   - adguard-home.yaml
+  - cloudflared.yaml
+  - external-dns.yaml
   - external-secrets.yaml
   - longhorn-system.yaml
   - metallb-system.yaml
-  - about-kuny-me.yaml
-  - cloudflared.yaml
   - monitoring.yaml
 
 labels:
