@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alloy-cm
+  namespace: monitoring
+data:
+  alloy: |
+    # Referencing this config map
+    configMap:
+      create: false
+      name: alloy-cm
+      key: data.alloy
+    # UI Serving
+    enableHttpServerPort: true
+    listenAddr: 0.0.0.0
+    listenPort: 80
+    listenSchem: HTTP
+    # Readiness and Timeout
+    initalDelaySeconds: 10
+    timeoutSeconds: 1
