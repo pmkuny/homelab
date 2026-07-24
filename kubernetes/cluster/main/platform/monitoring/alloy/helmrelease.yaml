@@ -16,5 +16,6 @@ spec:
         name: grafana
         namespace: flux-system
   valuesFrom:
-    name: alloy-cm
-    valuesKey: alloy
+    - name: alloy-cm
+      kind: ConfigMap
+      valuesKey: alloy
