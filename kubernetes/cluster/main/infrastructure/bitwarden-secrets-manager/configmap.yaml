@@ -57,6 +57,7 @@ data:
 
     # Service endpoint configuration for the metrics service.
     metricsService:
+      name: metrics
       ports:
         - name: https
           port: 8443
