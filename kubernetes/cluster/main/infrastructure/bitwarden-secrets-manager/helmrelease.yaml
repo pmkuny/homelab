@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: bitwarden-secrets-manager
+  name: bwsm
   namespace: external-secrets
 spec:
   interval: 30m
