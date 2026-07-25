@@ -14,7 +14,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitwarden
-    valuesFrom:
-      - kind: ConfigMap
-        name: bitwarden-secrets-manager-config
-        valuesKey: settings
+  valuesFrom:
+    - kind: ConfigMap
+      name: bitwarden-secrets-manager-config
+      valuesKey: settings
