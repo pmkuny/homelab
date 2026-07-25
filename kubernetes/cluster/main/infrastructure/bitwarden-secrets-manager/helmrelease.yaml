@@ -5,6 +5,7 @@ metadata:
   namespace: external-secrets
 spec:
   interval: 30m
+  releaseName: bwsm
 
   targetNamespace: external-secrets
   chart:
