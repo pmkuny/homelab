@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - apps.yaml
+  - infra-bitwarden-secrets-manager.yaml
   - infra-metallb-controller.yaml
   - infra-metallb-config.yaml
   - infrastructure.yaml

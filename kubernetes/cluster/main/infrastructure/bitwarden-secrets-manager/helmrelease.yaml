@@ -14,4 +14,3 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitwarden
-        namespace: external-secrets
