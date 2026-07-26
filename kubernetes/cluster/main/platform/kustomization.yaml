@@ -6,6 +6,7 @@ resources:
   - network/cloudflared/
   - monitoring/grafana/
   - monitoring/alloy/
+  - monitoring/prometheus/
 
 labels:
   - pairs:
