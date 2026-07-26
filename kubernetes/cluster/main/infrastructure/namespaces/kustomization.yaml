@@ -10,6 +10,9 @@ resources:
   - longhorn-system.yaml
   - metallb-system.yaml
   - monitoring.yaml
+  - metrics.yaml
+  - logs.yaml
+  - traces.yaml
 
 labels:
   - pairs:
