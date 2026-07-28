@@ -57,7 +57,7 @@ data:
     loki.write "default" {
 
       endpoint {
-        url = "http://YOUR_LOKI/loki/api/v1/push"
+        url = "http://${LOKI_CLUSTER_IP}/loki/api/v1/push"
       }
     }
 
@@ -66,7 +66,7 @@ data:
     otelcol.exporter.otlp "default" {
 
       client {
-        endpoint = "YOUR_TEMPO:4317"
+        endpoint = "${TEMPO_CLUSTER_IP}:4317"
 
         tls {
           insecure = true

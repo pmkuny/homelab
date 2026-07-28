@@ -5,3 +5,5 @@ metadata:
   namespace: flux-system
 data:
   PROMETHEUS_CLUSTER_IP: "10.96.197.119"
+  LOKI_CLUSTER_IP: "0.0.0.0"
+  TEMPO_CLUSTER_IP: "0.0.0.0"
