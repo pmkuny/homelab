@@ -14,3 +14,7 @@ spec:
   # Depends on the underlying infrastrcture configuration (namespaces and other K8s primitives)
   dependsOn:
     - name: infrastructure
+  postBuild:
+    substitueFrom:
+      - kind: ConfigMap
+        name: platform-config
