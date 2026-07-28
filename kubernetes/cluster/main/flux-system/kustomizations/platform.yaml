@@ -15,6 +15,6 @@ spec:
   dependsOn:
     - name: infrastructure
   postBuild:
-    substitueFrom:
+    substituteFrom:
       - kind: ConfigMap
         name: platform-config
