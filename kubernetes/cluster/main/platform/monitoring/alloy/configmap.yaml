@@ -44,7 +44,7 @@ data:
     prometheus.remote_write "default" {
 
       endpoint {
-        url = "http://YOUR_PROMETHEUS_OR_MIMIR/api/v1/write"
+        url = "http://10.102.241.149/api/v1/write"
       }
     }
 

@@ -60,6 +60,9 @@ spec:
     # Alertmanager configuration
     alertmanager:
       alertmanagerSpec:
+        podSecurityContext:
+          runAsUser: 65534
+          runAsNonRoot: true
         secrets:
           - alertmanager-secrets
         storage:
@@ -82,6 +85,16 @@ spec:
     # Node exporter configuration
     nodeExporter:
       enabled: true
+      podSecurityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 65534
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+        seccompProfile:
+          type: RuntimeDefault
 
     # kube-state-metrics configuration
     kubeStateMetrics:
