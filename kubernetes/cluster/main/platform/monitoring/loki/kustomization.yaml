@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - configmap.yaml
   - helmrelease.yaml
+  - secret.yaml
 
 labels:
   - pairs:
