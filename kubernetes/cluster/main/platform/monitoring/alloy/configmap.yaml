@@ -10,6 +10,17 @@ data:
       format = "logfmt"
     }
 
+    discovery.kubernetes "pods" {
+      role = "pod"
+    }
+
+    prometheus.scrape "pods" {
+      targets    = discovery.kubernetes.pods.targets
+      forward_to = [
+        prometheus.remote_write.default.receiver,
+      ]
+    }
+
     otelcol.receiver.otlp "default" {
       grpc {
         endpoint = "0.0.0.0:4317"
