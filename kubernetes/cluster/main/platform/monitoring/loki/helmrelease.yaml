@@ -18,3 +18,4 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: grafana-loki-cm
+      valuesKey: values.yaml

@@ -4,10 +4,9 @@ metadata:
   name: grafana-loki-cm
   namespace: logs
 data:
-  config:
+  values.yaml: |
     loki:
       storage:
-      object_store:
         type: s3
         s3:
           endpoint: ${LOKI_S3_ENDPOINT}
