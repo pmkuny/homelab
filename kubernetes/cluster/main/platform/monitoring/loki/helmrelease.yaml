@@ -15,3 +15,7 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: monitoring
+  valuesFrom:
+    - kind: ConfigMap
+      name: grafana-loki-cm
+      namespace: logs

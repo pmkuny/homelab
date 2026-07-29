@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-loki-cm
+  namespace: logs
+data:
+  config:
+    loki:
+      storage:
+      object_store:
+        type: s3
+        s3:
+          endpoint: ${LOKI_S3_ENDPOINT}
+          region: ${LOKI_S3_REGION}
