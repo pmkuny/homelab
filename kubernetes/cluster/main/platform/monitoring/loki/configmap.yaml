@@ -11,7 +11,7 @@ data:
         s3:
           endpoint: ${LOKI_S3_ENDPOINT}
           region: ${LOKI_S3_REGION}
-    schema_config:
+    schemaConfig:
       configs:
         - from: 2024-01-01
           object_store: s3
