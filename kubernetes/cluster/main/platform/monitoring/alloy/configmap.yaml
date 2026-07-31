@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: alloy-cm
   namespace: monitoring
+
 data:
   alloy.yaml: |
     logging {
@@ -10,77 +11,359 @@ data:
       format = "logfmt"
     }
 
+
+    //
+    // Kubernetes discovery
+    //
+
     discovery.kubernetes "pods" {
       role = "pod"
     }
 
+    discovery.kubernetes "nodes" {
+      role = "node"
+    }
+
+
+    //
+    // Pod metrics scraping
+    //
+    // Workloads must expose:
+    //
+    // prometheus.io/scrape: "true"
+    // prometheus.io/port: "<port>"
+    // prometheus.io/path: "/metrics"
+    //
+
+    prometheus.relabel "pods" {
+
+      forward_to = [
+        prometheus.scrape.pods.receiver,
+      ]
+
+
+      // Only scrape opted-in pods
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_annotation_prometheus_io_scrape",
+        ]
+
+        regex  = "true"
+        action = "keep"
+      }
+
+
+      // Metrics path
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_annotation_prometheus_io_path",
+        ]
+
+        regex = "(.+)"
+
+        target_label = "__metrics_path__"
+      }
+
+
+      // Metrics port
+
+      rule {
+        source_labels = [
+          "__address__",
+          "__meta_kubernetes_pod_annotation_prometheus_io_port",
+        ]
+
+        regex = "([^:]+)(?::\\d+)?;(\\d+)"
+
+        replacement = "$1:$2"
+
+        target_label = "__address__"
+      }
+
+
+      // Kubernetes labels
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_namespace",
+        ]
+
+        target_label = "namespace"
+      }
+
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_name",
+        ]
+
+        target_label = "pod"
+      }
+
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_container_name",
+        ]
+
+        target_label = "container"
+      }
+
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_node_name",
+        ]
+
+        target_label = "node"
+      }
+
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_label_app",
+        ]
+
+        target_label = "app"
+      }
+
+
+      // Ignore terminated pods
+
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_phase",
+        ]
+
+        regex  = "Succeeded|Failed"
+        action = "drop"
+      }
+    }
+
+
     prometheus.scrape "pods" {
-      targets    = discovery.kubernetes.pods.targets
+
+      targets = discovery.kubernetes.pods.targets
+
+      scrape_interval = "30s"
+
       forward_to = [
         prometheus.remote_write.default.receiver,
       ]
     }
 
-    otelcol.receiver.otlp "default" {
-      grpc {
-        endpoint = "0.0.0.0:4317"
+
+
+    //
+    // Kubernetes pod logs
+    //
+
+    loki.source.kubernetes "pods" {
+
+      targets = discovery.kubernetes.pods.targets
+
+      forward_to = [
+        loki.process.pods.receiver,
+      ]
+    }
+
+
+    loki.process "pods" {
+
+
+      // Add common labels
+
+      stage.static_labels {
+
+        values = {
+          cluster = "kubernetes"
+        }
       }
+
+
+      stage.labels {
+
+        values = {
+
+          namespace = "namespace"
+
+          pod = "pod"
+
+          container = "container"
+
+        }
+      }
+
+
+      forward_to = [
+        loki.write.default.receiver,
+      ]
+    }
+
+
+
+    //
+    // Kubernetes events
+    //
+
+    loki.source.kubernetes_events "events" {
+
+      forward_to = [
+        loki.write.default.receiver,
+      ]
+    }
+
+
+
+    //
+    // OpenTelemetry receiver
+    //
+
+    otelcol.receiver.otlp "default" {
+
+
+      grpc {
+
+        endpoint = "0.0.0.0:4317"
+
+      }
+
 
       http {
+
         endpoint = "0.0.0.0:4318"
+
       }
+
 
       output {
-        metrics = [otelcol.processor.batch.default.input]
-        logs    = [otelcol.processor.batch.default.input]
-        traces  = [otelcol.processor.batch.default.input]
+
+        metrics = [
+          otelcol.processor.batch.default.input,
+        ]
+
+        logs = [
+          otelcol.processor.batch.default.input,
+        ]
+
+        traces = [
+          otelcol.processor.batch.default.input,
+        ]
+
       }
+
     }
 
-    // Batching everything before routing to output
+
+
+    //
+    // Batch telemetry
+    //
 
     otelcol.processor.batch "default" {
+
+
       output {
-        metrics = [otelcol.exporter.prometheus.default.input]
-        logs    = [otelcol.exporter.loki.default.input]
-        traces  = [otelcol.exporter.otlp.default.input]
+
+        metrics = [
+          otelcol.exporter.prometheus.default.input,
+        ]
+
+
+        logs = [
+          otelcol.exporter.loki.default.input,
+        ]
+
+
+        traces = [
+          otelcol.exporter.otlp.default.input,
+        ]
+
       }
+
     }
 
-    // Metrics to Prom
+
+
+    //
+    // Metrics -> Prometheus
+    //
+
     otelcol.exporter.prometheus "default" {
-      forward_to = [prometheus.remote_write.default.receiver]
+
+      forward_to = [
+        prometheus.remote_write.default.receiver,
+      ]
+
     }
+
 
     prometheus.remote_write "default" {
 
+
       endpoint {
+
         url = "http://${PROMETHEUS_CLUSTER_IP}/api/v1/write"
+
       }
+
+
+      external_labels {
+
+        cluster = "kubernetes"
+
+      }
+
     }
 
 
-    // Logs to Loki
+
+    //
+    // Logs -> Loki
+    //
+
     otelcol.exporter.loki "default" {
-      forward_to = [loki.write.default.receiver]
+
+      forward_to = [
+        loki.write.default.receiver,
+      ]
+
     }
+
 
     loki.write "default" {
 
+
       endpoint {
+
         url = "http://${LOKI_CLUSTER_IP}/loki/api/v1/push"
+
       }
+
     }
 
 
-    // Traces -> Tempo (maybe)
+
+    //
+    // Traces -> Tempo
+    //
+
     otelcol.exporter.otlp "default" {
 
+
       client {
+
         endpoint = "${TEMPO_CLUSTER_IP}:4317"
 
+
         tls {
+
           insecure = true
+
         }
+
       }
+
     }
