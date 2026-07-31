@@ -33,7 +33,7 @@ spec:
     # Prometheus configuration
     prometheus:
       prometheusSpec:
-        enableRemoteWriteReciever: true
+        enableRemoteWriteReceiver: true
         # Retention period for metrics
         retention: 30d
         # Storage configuration
