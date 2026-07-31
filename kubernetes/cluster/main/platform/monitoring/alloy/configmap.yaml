@@ -165,7 +165,7 @@ data:
     prometheus.remote_write "default" {
 
       endpoint {
-        url = "http://${PROMETHEUS_CLUSTER_IP}/api/v1/write"
+        url = "http://prometheus-operated.metrics.svc.cluster.local:9090/api/v1/write"
       }
 
 
@@ -191,7 +191,7 @@ data:
     loki.write "default" {
 
       endpoint {
-        url = "http://${LOKI_CLUSTER_IP}/loki/api/v1/push"
+        url = "http://grafana-loki.logs.svc.cluster.local:3100/loki/api/v1/push"
       }
     }
 
@@ -205,7 +205,7 @@ data:
 
       client {
 
-        endpoint = "${TEMPO_CLUSTER_IP}:4317"
+        endpoint = "tempo.traces.svc.cluster.local:4317"
 
         tls {
           insecure = true
