@@ -12,6 +12,7 @@ resources:
   - monitoring.yaml
   - metrics.yaml
   - logs.yaml
+  - scraparr.yaml
   - traces.yaml
 
 labels:
