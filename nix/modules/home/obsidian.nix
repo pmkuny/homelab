@@ -10,7 +10,6 @@
       "vimMode" = true;
       "showLineNumber" = true;
       "readableLineLength" = true;
-      "newFileLocation" = "00 - Atomic";
       "propertiesInDocument" = "source";
       "livePreview" = true;
     };
@@ -31,11 +30,11 @@
             "bases"
             "command-palette"
             "properties"
-            "tag-pane" 
+            "tag-pane"
             "templates"
             "backlink"
             "canvas"
-            "sync" 
+            "sync"
           ];
           themes = [{
             pkg = pkgs.runCommand "Solarized" {
