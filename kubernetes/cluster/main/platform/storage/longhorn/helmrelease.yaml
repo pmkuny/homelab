@@ -23,3 +23,6 @@ spec:
     defaultSettings:
       defaultReplicaCount: 3
       defaultDataPath: /var/lib/longhorn
+    service:
+      ui:
+        type: LoadBalancer
